@@ -80,7 +80,17 @@ export default function Home({ posts, meta }: { posts: any; meta: any }) {
     <div>
       <Head>
         <title>Alexander Lee Smith</title>
-        <link rel='icon' href='/favicon.ico' />
+        <meta
+          property='og:url'
+          content='https://alexanderleesmith.vercel.app/'
+        />
+        <meta property='og:type' content='website' />
+        <meta property='og:title' content='Alexander Lee Smith | Portfolio' />
+        <meta property='og:image' content={'/me.jpg'} />
+        <link
+          rel='icon'
+          href='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌺</text></svg>'
+        />
       </Head>
 
       <Container>
