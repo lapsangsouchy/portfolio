@@ -19,6 +19,7 @@ const useStyles = createStyles((theme) => ({
     justifyContent: 'space-between',
     alignItems: 'center',
     height: 56,
+    marginTop: '1rem',
 
     [theme.fn.smallerThan('sm')]: {
       justifyContent: 'flex-start',
@@ -27,28 +28,38 @@ const useStyles = createStyles((theme) => ({
 
   links: {
     width: 260,
+    marginRight: theme.spacing.md,
 
     [theme.fn.smallerThan('sm')]: {
-      display: 'none',
+      marginRight: 0,
+      paddingRight: 0,
+      width: 100,
     },
   },
 
-  social: {
+  logo: {
+    width: 400,
+    marginRight: theme.spacing.md,
+    textAlign: 'center',
+  },
+
+  toggle: {
     width: 260,
 
     [theme.fn.smallerThan('sm')]: {
       width: 'auto',
       marginLeft: 'auto',
+      marginRight: 0,
     },
   },
 
-  burger: {
-    marginRight: theme.spacing.md,
+  // burger: {
+  //   marginRight: theme.spacing.md,
 
-    [theme.fn.largerThan('sm')]: {
-      display: 'none',
-    },
-  },
+  //   [theme.fn.largerThan('sm')]: {
+  //     display: 'none',
+  //   },
+  // },
 
   link: {
     display: 'block',
@@ -71,34 +82,34 @@ const useStyles = createStyles((theme) => ({
     },
   },
 
-  linkActive: {
-    '&, &:hover': {
-      backgroundColor: theme.fn.variant({
-        variant: 'light',
-        color: theme.primaryColor,
-      }).background,
-      color: theme.fn.variant({ variant: 'light', color: theme.primaryColor })
-        .color,
-    },
-  },
+  // linkActive: {
+  //   '&, &:hover': {
+  //     backgroundColor: theme.fn.variant({
+  //       variant: 'light',
+  //       color: theme.primaryColor,
+  //     }).background,
+  //     color: theme.fn.variant({ variant: 'light', color: theme.primaryColor })
+  //       .color,
+  //   },
+  // },
 }));
 
 export default function Layout() {
-  const [opened, { toggle }] = useDisclosure(false);
+  // const [opened, { toggle }] = useDisclosure(false);
 
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
   const dark = colorScheme === 'dark';
   const { classes, cx } = useStyles();
 
   return (
-    <Header height={56} zIndex={100}>
+    <Header height={81.5} zIndex={100}>
       <Container className={classes.inner}>
-        <Burger
+        {/* <Burger
           opened={opened}
           onClick={toggle}
           size='sm'
           className={classes.burger}
-        />
+        /> */}
         <Group className={classes.links} spacing={5}>
           <ActionIcon
             component='a'
@@ -120,11 +131,11 @@ export default function Layout() {
           </ActionIcon>
         </Group>
 
-        <Link href='/' className={classes.link}>
+        <Link href='/' className={classes.logo}>
           <h1>Alexander Lee Smith</h1>
         </Link>
 
-        <Group spacing={0} className={classes.social} position='right' noWrap>
+        <Group spacing={0} className={classes.toggle} position='right' noWrap>
           <ActionIcon
             variant='outline'
             color={dark ? 'yellow' : 'blue'}

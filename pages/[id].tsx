@@ -14,7 +14,10 @@ import {
   Code,
   Box,
   Group,
+  ActionIcon,
 } from '@mantine/core';
+import { IconBrandGithub } from '@tabler/icons';
+
 import TableOfContents from '../components/TableOfContents';
 import { Prism } from '@mantine/prism';
 import styles from '../styles/post.module.css';
@@ -81,6 +84,17 @@ const useStyles = createStyles((theme) => ({
     padding: '2px 4px',
     borderRadius: '2px',
     color: theme.colorScheme === 'dark' ? theme.black : theme.white,
+  },
+  link: {
+    transition: 'transform 150ms ease, box-shadow 150ms ease',
+    background: 'none',
+    border: 'none',
+
+    '&:hover': {
+      transform: 'scale(1.1)',
+      boxShadow: theme.shadows.md,
+      cursor: 'pointer',
+    },
   },
 }));
 
@@ -369,6 +383,33 @@ export default function Post({
               </Text>
             </Container>
           </div>
+        </div>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
+          <ActionIcon
+            component='a'
+            href={page.properties.Repo.url}
+            target='_blank'
+            rel='noopener noreferrer'
+            size='lg'
+            className={classes.link}
+          >
+            <IconBrandGithub size={25} stroke={1.5} />
+          </ActionIcon>
+          <a
+            href={page.properties.Live.url}
+            target='_blank'
+            rel='noopener noreferrer'
+            className={classes.link}
+            style={{ marginTop: '4px' }}
+          >
+            <button className={classes.link}>View Live</button>
+          </a>
         </div>
         <section>
           <TableOfContents links={links} />
