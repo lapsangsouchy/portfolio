@@ -20,7 +20,7 @@ const useStyles = createStyles((theme) => ({
   inner: {
     display: 'flex',
     justifyContent: 'space-between',
-    paddingTop: theme.spacing.xl * 4,
+    paddingTop: theme.spacing.sm * 4,
     paddingBottom: theme.spacing.xl * 4,
 
     [theme.fn.smallerThan('md')]: {
@@ -51,7 +51,7 @@ const useStyles = createStyles((theme) => ({
     fontWeight: 900,
 
     [theme.fn.smallerThan('xs')]: {
-      fontSize: 28,
+      fontSize: 40,
     },
   },
 
@@ -109,6 +109,11 @@ export default function Home({ posts, meta }: { posts: any; meta: any }) {
             </Title>
             <Title order={2} color='dimmed' mt='md'>
               {meta.description[0]['plain_text']}
+            </Title>
+            <Title order={3} mt='md'>
+              <a href='mailto:aleesmithnyc@gmail.com'>
+                aleesmithnyc@gmail.com 📮
+              </a>
             </Title>
           </div>
         </div>
