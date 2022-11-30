@@ -79,7 +79,7 @@ export default function Home({ posts, meta }: { posts: any; meta: any }) {
   return (
     <div>
       <Head>
-        <title>Social Asides</title>
+        <title>Alexander Lee Smith</title>
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
