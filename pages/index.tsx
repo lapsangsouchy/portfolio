@@ -80,10 +80,7 @@ export default function Home({ posts, meta }: { posts: any; meta: any }) {
     <div>
       <Head>
         <title>Alexander Lee Smith</title>
-        <meta
-          property='og:url'
-          content='https://www.alexanderleesmith.com/'
-        />
+        <meta property='og:url' content='https://www.alexanderleesmith.com/' />
         <meta property='og:type' content='website' />
         <meta property='og:title' content='Alexander Lee Smith | Portfolio' />
         <meta property='og:image' content={'/me.jpg'} />
@@ -139,6 +136,7 @@ export default function Home({ posts, meta }: { posts: any; meta: any }) {
 export const getStaticProps = async () => {
   const database = await getDatabase(databaseId);
   const dbMeta = await getMeta(databaseId);
+
   return {
     props: {
       posts: database,

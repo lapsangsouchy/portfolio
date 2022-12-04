@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
+
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
@@ -7,6 +8,7 @@ const nextConfig = {
       's3.us-west-2.amazonaws.com',
       'images.unsplash.com',
       'www.notion.so',
+      'upload.wikimedia.org',
     ],
   },
 };

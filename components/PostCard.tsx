@@ -4,11 +4,12 @@ import styles from '../styles/index.module.css';
 import {
   createStyles,
   Card,
-  Image,
+  // Image,
   Text,
   AspectRatio,
   ActionIcon,
 } from '@mantine/core';
+import Image from 'next/image';
 import { IconBrandGithub } from '@tabler/icons';
 
 const useStyles = createStyles((theme) => ({
@@ -70,12 +71,13 @@ const PostCard = ({ post }: { post: any }) => {
         <a href={post.properties.Live.url} target='_blank' rel='noreferrer'>
           {post.cover && (
             <AspectRatio ratio={1920 / 1080}>
-              <img
+              <Image
                 src={
                   post.cover.type === 'external'
                     ? post.cover.external.url
                     : post.cover.file.url
                 }
+                fill
                 alt={post.properties.Name.title}
               />
             </AspectRatio>
@@ -96,7 +98,8 @@ const PostCard = ({ post }: { post: any }) => {
                   post.icon.emoji
                 ) : (
                   <Image
-                    style={{ width: 30 }}
+                    width={30}
+                    height={30}
                     src={post.icon[post.icon.type].url}
                     alt='icon'
                   />
