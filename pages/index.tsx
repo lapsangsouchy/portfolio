@@ -11,8 +11,10 @@ import {
   Group,
   Button,
   createStyles,
-  Image,
+  // Image,
 } from '@mantine/core';
+import Image from 'next/image';
+import profilePic from '../public/me.jpg';
 
 export const databaseId: string = process.env.NOTION_BLOG_DATABASE_ID;
 
@@ -94,10 +96,12 @@ export default function Home({ posts, meta }: { posts: any; meta: any }) {
         <div className={classes.inner}>
           <Container size={500} className={classes.image}>
             <Image
-              radius='md'
+              style={{ borderRadius: '8px' }}
               alt='Alex Smith Headshot'
-              src='/me.jpg'
+              src={profilePic}
               height={500}
+              width={350}
+              placeholder='blur'
             />
           </Container>
           <div className={classes.content}>
