@@ -82,7 +82,7 @@ export default function Home({ posts, meta }: { posts: any; meta: any }) {
         <title>Alexander Lee Smith</title>
         <meta
           property='og:url'
-          content='https://alexanderleesmith.vercel.app/'
+          content='https://www.alexanderleesmith.com/'
         />
         <meta property='og:type' content='website' />
         <meta property='og:title' content='Alexander Lee Smith | Portfolio' />
