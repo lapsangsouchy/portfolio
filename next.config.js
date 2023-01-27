@@ -9,6 +9,7 @@ const nextConfig = {
       'images.unsplash.com',
       'www.notion.so',
       'upload.wikimedia.org',
+      'res.cloudinary.com',
     ],
   },
 };

@@ -6,8 +6,6 @@ import {
   SimpleGrid,
   Container,
   Title,
-  Text,
-  Overlay,
   Group,
   Button,
   createStyles,

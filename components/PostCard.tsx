@@ -58,6 +58,7 @@ const useStyles = createStyles((theme) => ({
 
 const PostCard = ({ post }: { post: any }) => {
   const { classes } = useStyles();
+  console.log(post.properties.Cover);
 
   const date = new Date(post.created_time).toLocaleString('en-US', {
     month: 'short',
@@ -69,7 +70,7 @@ const PostCard = ({ post }: { post: any }) => {
     <Card key={post.id} p='md' radius='md' className={classes.card}>
       <div className={styles.postHead}>
         <a href={post.properties.Live.url} target='_blank' rel='noreferrer'>
-          {post.cover && (
+          {/* {post.cover && (
             <AspectRatio ratio={1920 / 1080}>
               <Image
                 src={
@@ -81,7 +82,14 @@ const PostCard = ({ post }: { post: any }) => {
                 alt={post.properties.Name.title}
               />
             </AspectRatio>
-          )}
+          )} */}
+          <AspectRatio ratio={1920 / 1080}>
+            <Image
+              src={post.properties.Cover.url}
+              fill
+              alt={post.properties.Name.title}
+            />
+          </AspectRatio>
           <Text
             color='dimmed'
             size='xs'
