@@ -58,7 +58,6 @@ const useStyles = createStyles((theme) => ({
 
 const PostCard = ({ post }: { post: any }) => {
   const { classes } = useStyles();
-  console.log(post.properties.Cover);
 
   const date = new Date(post.created_time).toLocaleString('en-US', {
     month: 'short',
@@ -88,6 +87,11 @@ const PostCard = ({ post }: { post: any }) => {
               src={post.properties.Cover.url}
               fill
               alt={post.properties.Name.title}
+              style={{ objectFit: 'contain' }}
+              sizes='(max-width: 768px) 100%,
+                      33vw
+              '
+              priority
             />
           </AspectRatio>
           <Text
