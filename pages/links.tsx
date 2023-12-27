@@ -111,7 +111,7 @@ export default function Links({ posts, meta }: { posts: any; meta: any }) {
             <a href='https://www.goodreads.com/aleenyc'>Goodreads</a>
           </Card>
           <Card size='xl' p='md' radius='md' className={classes.card}>
-            <a href='https://www.goodreads.com/aleenyc'>Letterboxd</a>
+            <a href='https://boxd.it/1jFcZ'>Letterboxd</a>
           </Card>
           <Card size='xl' p='md' radius='md' className={classes.card}>
             <a href='mailto:aleesmithnyc@gmail.com'>
