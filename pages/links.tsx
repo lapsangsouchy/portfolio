@@ -102,7 +102,6 @@ export default function Links({ posts, meta }: { posts: any; meta: any }) {
       <main className={styles.container}>
         <Flex
           py='lg'
-          className={classes.linksContainer}
           gap='md'
           justify='center'
           align='center'
