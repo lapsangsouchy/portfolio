@@ -119,7 +119,7 @@ export default function Links({ posts, meta }: { posts: any; meta: any }) {
             </a>
           </Card>
         </Flex>
-        <Center size={500} mb='sm'>
+        <Center mb='sm'>
           <a href='https://youtu.be/nhjIWDdXpAU?si=_dxSajhSaMPrnaJy'>
             <Image
               style={{ borderRadius: '8px' }}
