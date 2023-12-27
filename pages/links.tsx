@@ -107,13 +107,13 @@ export default function Links({ posts, meta }: { posts: any; meta: any }) {
           align='center'
           direction='column'
         >
-          <Card size='xl' p='md' radius='md' className={classes.card}>
+          <Card p='md' radius='md' className={classes.card}>
             <a href='https://www.goodreads.com/aleenyc'>Goodreads</a>
           </Card>
-          <Card size='xl' p='md' radius='md' className={classes.card}>
+          <Card p='md' radius='md' className={classes.card}>
             <a href='https://boxd.it/1jFcZ'>Letterboxd</a>
           </Card>
-          <Card size='xl' p='md' radius='md' className={classes.card}>
+          <Card p='md' radius='md' className={classes.card}>
             <a href='mailto:aleesmithnyc@gmail.com'>
               aleesmithnyc@gmail.com 📮
             </a>
