@@ -92,3 +92,14 @@
   margin-bottom: 12px;
   /* opacity: 0.65; */
 }
+
+.linksContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.linkCard {
+  display: flex;
+  justify-content: center;
+}

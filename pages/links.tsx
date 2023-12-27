@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import styles from '../styles/index.module.css';
 import { getDatabase, getMeta } from '../lib/notion';
-import PostCard from '../components/PostCard';
+
 import {
   SimpleGrid,
   Container,
@@ -9,20 +9,18 @@ import {
   Group,
   Button,
   createStyles,
-  // Image,
+  Card,
+  Flex,
+  Center,
 } from '@mantine/core';
 import Image from 'next/image';
-import profilePic from '../public/me.jpg';
-import Link from 'next/link';
-
-export const databaseId: string = process.env.NOTION_BLOG_DATABASE_ID;
+import monkee from '../public/monkee.jpeg';
 
 const useStyles = createStyles((theme) => ({
   inner: {
     display: 'flex',
-    justifyContent: 'space-between',
-    paddingTop: theme.spacing.sm * 4,
-    paddingBottom: theme.spacing.xl * 4,
+    justifyContent: 'center',
+    paddingTop: theme.spacing.sm,
 
     [theme.fn.smallerThan('md')]: {
       flexDirection: 'column',
@@ -31,17 +29,14 @@ const useStyles = createStyles((theme) => ({
 
   content: {
     maxWidth: 480,
-    marginRight: theme.spacing.xl,
+
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    textAlign: 'center',
 
     [theme.fn.smallerThan('md')]: {
       maxWidth: '100%',
-      marginRight: 0,
-      marginBottom: '2rem',
     },
   },
 
@@ -51,17 +46,10 @@ const useStyles = createStyles((theme) => ({
     fontSize: 44,
     lineHeight: 1.2,
     fontWeight: 900,
+    textAlign: 'center',
 
     [theme.fn.smallerThan('xs')]: {
       fontSize: 40,
-    },
-  },
-
-  image: {
-    flex: 1,
-
-    [theme.fn.smallerThan('md')]: {
-      order: 2,
     },
   },
 
@@ -74,9 +62,22 @@ const useStyles = createStyles((theme) => ({
     borderRadius: theme.radius.sm,
     padding: '4px 12px',
   },
+
+  card: {
+    transition: 'transform 150ms ease, box-shadow 150ms ease',
+
+    '&:hover': {
+      transform: 'scale(1.01)',
+      boxShadow: theme.shadows.md,
+    },
+
+    width: '100%',
+    justifyContent: 'center',
+    textAlign: 'center',
+  },
 }));
 
-export default function Home({ posts, meta }: { posts: any; meta: any }) {
+export default function Links({ posts, meta }: { posts: any; meta: any }) {
   const { classes } = useStyles();
   return (
     <div>
@@ -94,61 +95,44 @@ export default function Home({ posts, meta }: { posts: any; meta: any }) {
 
       <Container>
         <div className={classes.inner}>
-          <Container size={500} className={classes.image}>
-            <Image
-              style={{ borderRadius: '8px' }}
-              alt='Alex Smith Headshot'
-              src={profilePic}
-              height={500}
-              width={350}
-              placeholder='blur'
-            />
-          </Container>
-          <div className={classes.content}>
-            <Title className={classes.title}>
-              {meta.title[0]['plain_text']}
-            </Title>
-            <Title order={2} color='dimmed' mt='md'>
-              {meta.description[0]['plain_text']}
-            </Title>
-            <Title order={3} mt='md'>
-              <a href='mailto:aleesmithnyc@gmail.com'>
-                aleesmithnyc@gmail.com 📮
-              </a>
-            </Title>
-            <Title order={4} mt='md'>
-              <Link href='/links'>Links Page</Link>
-            </Title>
-          </div>
+          <Title className={classes.title}>Links</Title>
         </div>
       </Container>
 
       <main className={styles.container}>
-        <div className={styles.heading}>
-          <h2>Projects</h2>
-        </div>
-
-        <Group py='lg'>
-          <SimpleGrid cols={2} breakpoints={[{ maxWidth: 'sm', cols: 1 }]}>
-            {posts.map((post: any) => (
-              <PostCard key={post.id} post={post} />
-            ))}
-          </SimpleGrid>
-        </Group>
+        <Flex
+          py='lg'
+          className={classes.linksContainer}
+          gap='md'
+          justify='center'
+          align='center'
+          direction='column'
+        >
+          <Card size='xl' p='md' radius='md' className={classes.card}>
+            <a href='https://www.goodreads.com/aleenyc'>Goodreads</a>
+          </Card>
+          <Card size='xl' p='md' radius='md' className={classes.card}>
+            <a href='https://www.goodreads.com/aleenyc'>Letterboxd</a>
+          </Card>
+          <Card size='xl' p='md' radius='md' className={classes.card}>
+            <a href='mailto:aleesmithnyc@gmail.com'>
+              aleesmithnyc@gmail.com 📮
+            </a>
+          </Card>
+        </Flex>
+        <Center size={500} mb='sm'>
+          <a href='https://youtu.be/nhjIWDdXpAU?si=_dxSajhSaMPrnaJy'>
+            <Image
+              style={{ borderRadius: '8px' }}
+              alt='hehehe'
+              src={monkee}
+              height={500}
+              width={350}
+              placeholder='blur'
+            />
+          </a>
+        </Center>
       </main>
     </div>
   );
 }
-
-export const getStaticProps = async () => {
-  const database = await getDatabase(databaseId);
-  const dbMeta = await getMeta(databaseId);
-
-  return {
-    props: {
-      posts: database,
-      meta: dbMeta,
-    },
-    revalidate: 1,
-  };
-};

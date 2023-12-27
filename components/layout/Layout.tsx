@@ -41,6 +41,11 @@ const useStyles = createStyles((theme) => ({
     width: 400,
     marginRight: theme.spacing.md,
     textAlign: 'center',
+    lineHeight: '2rem',
+    [theme.fn.smallerThan('sm')]: {
+      width: 200,
+      overflowWrap: 'break-word',
+    },
   },
 
   toggle: {
